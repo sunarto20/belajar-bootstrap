@@ -38,21 +38,9 @@ function getList() {
             let content = '';
             const communities = response.komunitas;
             communities.forEach(community => {
-                content += `
-                    <div class="col-12 col-md-6 col-lg-3 mb-2 card-community" data-bs-toggle="modal" data-bs-target="#detailKomunitas" data-communityId="${community.id}">
-                        <div class="card">
-                            <img src="${community.logo_url}"
-                                class="card-img-top p-1" alt="${community.nama}">
-                            <div class="card-body">
-                                <a href="#" class="card-title h5 text-decoration-none mb-3 d-inline-block">${community.nama}</a>
-                                <p class="card-text">${community.deskripsi}</p>
-                                <p class="text-info">${community.kategori}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
+                content += cardCommunity(community);
                 $('#list-komunitas').html(content)
+                $('.total-item').html(communities.length + " item");
             })
         }
     })
@@ -73,21 +61,10 @@ $('.select-category').on('change', function () {
             $('#list-komunitas').html('')
             const communities = response.komunitas;
             communities.forEach(community => {
-                content += `
-                    <div class="col-12 col-md-6 col-lg-3 mb-2 card-community" data-bs-toggle="modal" data-bs-target="#detailKomunitas" data-communityId="${community.id}">
-                        <div class="card">
-                            <img src="${community.logo_url}"
-                                class="card-img-top p-1" alt="${community.nama}">
-                            <div class="card-body">
-                                <h5 class="card-title">${community.nama}</h5>
-                                <p class="card-text">${community.deskripsi}</p>
-                                <p class="text-info">${community.kategori}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
+                content += cardCommunity(community);
                 $('#list-komunitas').html(content)
+                $('.total-item').html(communities.length + " item");
+
             })
         }
     })
@@ -105,33 +82,36 @@ $(document).on('click', '.card-community', function () {
         method: 'GET',
         dataType: 'json',
         success: function (response) {
-            modalTitle.html(response.nama);
+            modalTitle.html(`${response.nama} (${response.kategori})`);
             $('#image-community').attr('src', response.logo_url)
-            listItem += `
-                <div class="mb-1">
-                    <label class="form-label fw-bold">Deskripsi</label>
-                    <p>${response.deskripsi}</p>
-                </div>
-                <div class="mb-1">
-                    <label class="form-label fw-bold">Jadwal</label>
-                    <p>${response.jadwal}</p>
-                </div>
-                <div class="mb-1">
-                    <label class="form-label fw-bold">Kontak</label>
-                    <p>${response.kontak}</p>
-                </div>
-                <div class="mb-1">
-                    <label class="form-label fw-bold">Instagram</label>
-                    <p>${response.instagram}</p>
-                </div>
-                <div class="mb-1">
-                    <label class="form-label fw-bold">Facebook</label>
-                    <p>${response.facebook}</p>
-                </div>
-            `;
-
+            listItem += assertListItem('Deskripsi', response.deskripsi);
+            listItem += assertListItem('Jadwal', response.jadwal);
+            listItem += assertListItem('Kontak', response.kontak);
+            listItem += assertListItem('Instagram', response.instagram);
+            listItem += assertListItem('Facebook', response.facebook);
             listGroup.html(listItem)
         }
     })
 })
+
+function assertListItem(label, value) {
+    return `<div class="mb-1">
+                <label class="form-label fw-bold">${label}</label>
+                <p>${value}</p>
+            </div>`;
+}
+
+function cardCommunity(community) {
+    return `<div class="col-12 col-md-6 col-lg-3 mb-2 card-community" data-bs-toggle="modal" data-bs-target="#detailKomunitas" data-communityId="${community.id}">
+                <div class="card">
+                    <img src="${community.logo_url}"
+                        class="card-img-top p-1" alt="${community.nama}">
+                    <div class="card-body">
+                        <h5 class="card-title">${community.nama}</h5>
+                        <p class="card-text">${community.deskripsi}</p>
+                        <p class="text-info">${community.kategori}</p>
+                    </div>
+                </div>
+            </div>`;
+}
 
