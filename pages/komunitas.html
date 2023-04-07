@@ -53,34 +53,39 @@
     <div class="container mt-5">
         <h1>Data Komunitas</h1>
         <div class="col-12 col-md-3 mb-3">
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select select-category" aria-label="Default select example">
                 <option selected disabled>Pilih Kategori</option>
-                <option value="Sosial">Sosial</option>
-                <option value="Pendidikan">Pendidikan</option>
-                <option value="Seni dan Budaya">Seni dan Budaya</option>
-                <option value="Remote Control">Remote Control</option>
-                <option value="Fotografi & Film">Fotografi & Film</option>
-                <option value="Olahraga">Olahraga</option>
-                <option value="Bisnis dan UKM">Bisnis dan UKM</option>
-                <option value="Kesehatan">Kesehatan</option>
-                <option value="Otomotif">Otomotif</option>
-                <option value="Wisata dan Kuliner">Wisata dan Kuliner</option>
-                <option value="Keagamaan">Keagamaan</option>
-
             </select>
         </div>
-        <div class="row" id="list-komunitas">
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card">
-                    <img src="http://dev.farizdotid.com/api/halopwk/gambar/komunitas/kopel_purwakarta.jpg"
-                        class="card-img-top p-1" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Komunitas pena dan lensa (KOPEL)</h5>
-                        <p class="card-text">Komunitas pena dan lensa (KOPEL) purwakarta Bergerak di bidang literasi dan
-                            informasi. Dalam kopel ada 5 divisi. Yaitu. Sastra, jurnalistik, desaingrafis, fotography,
-                            videography..</p>
-                        <p class="text-info">Sosial</p>
+
+        <div class="row" id="list-komunitas"></div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="detailKomunitas" tabindex="-1" aria-labelledby="detailKomunitasLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="detailKomunitasLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <img id="image-community" class="w-100" src="" srcset="">
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-group">
+
+                            </ul>
+                        </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
