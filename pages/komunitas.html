@@ -39,21 +39,17 @@
 
     <div class="px-3 mt-5">
         <h1>Halaman Komunitas</h1>
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card">
-                    <img src="http://dev.farizdotid.com/api/halopwk/gambar/komunitas/kopel_purwakarta.jpg"
-                        class="card-img-top p-2" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Komunitas pena dan lensa (KOPEL)</h5>
-                        <p class="card-text">Komunitas pena dan lensa (KOPEL) purwakarta Bergerak di bidang literasi dan
-                            informasi. Dalam kopel ada 5 divisi. Yaitu. Sastra, jurnalistik, desaingrafis, fotography,
-                            videography.</p>
-                        <span class="text-primary">Sosial</span>
-                    </div>
-                </div>
-            </div>
+
+        <div class="mb-3 col-12 col-md-6 col-lg-3">
+            <label class="form-label">Pilih Kategori</label>
+            <select class="form-select" id="list-categories" aria-label="Default select example">
+                <option selected disabled>Silahkan Pilih Kategori</option>
+            </select>
         </div>
+
+
+        <div class="row" id="list-communities"></div>
+
     </div>
 
     <!-- end content Section -->
