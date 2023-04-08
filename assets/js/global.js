@@ -1,0 +1,1 @@
+const BASE_API_URL = 'https://dev.farizdotid.com/api/purwakarta';
