@@ -26,7 +26,7 @@ function getCommunities() {
 
             communities.forEach((community) => {
                 content += `
-                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="col-12 col-md-6 col-lg-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <div class="card">
                             <img src="${community.logo_url}"
                                 class="card-img-top p-2" alt="${community.nama}">
@@ -66,4 +66,42 @@ function getCategories() {
         }
     })
 }
+
+LIST_CATEGORIES.on('change', function () {
+    const categoryName = $(this).val();
+
+    if (categoryName === 'all') {
+        getCommunities();
+        return;
+    }
+
+    $.ajax({
+        url: URL_COMMUNITY,
+        data: {
+            kategori: categoryName
+        },
+        method: 'GET',
+        dataType: 'json',
+        success: response => {
+            let content = '';
+            response.komunitas.forEach(community => {
+                content += `
+                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                        <div class="card">
+                            <img src="${community.logo_url}"
+                                class="card-img-top p-2" alt="${community.nama}">
+                            <div class="card-body">
+                                <h5 class="card-title">${community.nama}</h5>
+                                <p class="card-text">${community.deskripsi}</p>
+                                <span class="text-primary">${community.kategori}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            })
+            LIST_COMMUNITIES.html(content)
+        }
+    })
+})
+
 
