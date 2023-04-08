@@ -3,6 +3,7 @@ const URL_COMMUNITY_CATEGORIES = URL_COMMUNITY + '/kategori';
 const LIST_COMMUNITIES = $('#list-communities');
 const LIST_CATEGORIES = $('#list-categories');
 const CARD_COMMUNITY = $('#card-community');
+const COUNT_DATA = $('#count-data');
 
 
 $(function () {
@@ -22,7 +23,6 @@ function getCommunities() {
         dataType: 'json',
         success: (response) => {
             const communities = response.komunitas;
-
             let content = '';
 
             communities.forEach((community) => {
@@ -30,11 +30,9 @@ function getCommunities() {
             });
 
             LIST_COMMUNITIES.html(content)
-
-
+            COUNT_DATA.html(communities.length);
         }
     });
-
 }
 
 
@@ -45,13 +43,11 @@ function getCategories() {
         dataType: 'json',
         success: (response) => {
             let content = '';
-
             response.kategori.forEach((category) => {
                 content += `<option value="${category.nama}">${category.nama}</option>`;
             });
 
             LIST_CATEGORIES.append(content);
-
         }
     })
 }
@@ -76,6 +72,12 @@ LIST_CATEGORIES.on('change', function () {
             response.komunitas.forEach(community => {
                 content += cardCommunity(community);
             })
+
+            if (response.komunitas.length === 0) {
+                content = "<div class='h1 text-center'>Data Kosong</div>"
+            }
+
+            COUNT_DATA.html(response.komunitas.length);
             LIST_COMMUNITIES.html(content)
         }
     })
@@ -111,7 +113,6 @@ $(document).on('click', '#card-community', function () {
             `;
 
             $('.modal-body').html(content);
-
         }
     })
 })
