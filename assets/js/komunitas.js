@@ -3,7 +3,6 @@ const URL_COMMUNITY_CATEGORIES = URL_COMMUNITY + '/kategori';
 const LIST_COMMUNITIES = $('#list-communities');
 const LIST_CATEGORIES = $('#list-categories');
 const CARD_COMMUNITY = $('#card-community');
-const COUNT_DATA = $('#count-data');
 
 $(function () {
     init();
@@ -130,13 +129,5 @@ function cardCommunity(community) {
             </div>`;
 }
 
-function listInformation(title, value) {
-    return `
-        <li class="list-group-item">
-            <p class="fw-bolder
-            ">${title}</p>
-            <p>${value}</p>
-        </li>
-    `;
-}
+
 
