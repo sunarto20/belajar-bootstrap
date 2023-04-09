@@ -1,1 +1,102 @@
-<h1>Rute Angkot</h1>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rute Angkot | Belajar Fetch API </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">\
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- section navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                    <a class="nav-link" aria-current="page" href="./komunitas.html">Komunitas</a>
+                    <a class="nav-link" aria-current="page" href="./hotel.html">Hotel</a>
+                    <a class="nav-link" aria-current="page" href="./kuliner.html">Kuliner</a>
+                    <a class="nav-link active" aria-current="page" href="#">Rute Angkot</a>
+                    <a class="nav-link" aria-current="page" href="./tempat-ibadah.html">Tempat Ibadah</a>
+                    <a class="nav-link" aria-current="page" href="./wisata.html">Wisata</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end section navbar -->
+
+    <!-- content section -->
+
+    <div class="px-3 mt-5">
+        <h1>Halaman Kuliner</h1>
+        <div class="d-flex justify-content-between">
+            <span class="fs-3">Jumlah Data : <span id="count-data">10</span> Item</span>
+        </div>
+
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama Trayek</th>
+                            <th>Nomor Angkot</th>
+                            <th>Lintasan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-rute-angkot">
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- end content Section -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="ruteAngkot" tabindex="-1" aria-labelledby="ruteAngkotLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ruteAngkotLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal -->
+
+
+    <!-- footer section -->
+    <footer class="text-center mt-auto p-3 border-top">
+        <p>&copy; DTS 2023 FGA Kelas E</p>
+    </footer>
+    <!-- end footer section -->
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/global.js"></script>
+    <script src="../assets/js/rute-angkot.js"></script>
+</body>
+
+</html>
