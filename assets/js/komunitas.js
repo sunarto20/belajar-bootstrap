@@ -5,7 +5,6 @@ const LIST_CATEGORIES = $('#list-categories');
 const CARD_COMMUNITY = $('#card-community');
 const COUNT_DATA = $('#count-data');
 
-
 $(function () {
     init();
 })
