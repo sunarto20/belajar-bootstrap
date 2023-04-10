@@ -17,7 +17,6 @@ function getWisata() {
         success: function (response) {
             const places = response.wisata;
             let content = '';
-
             places.forEach(place => {
                 content += `
                     <div class="col-12 col-md-6 col-lg-4" data-bs-toggle="modal" data-bs-target="#wisata" id="card-wisata" data-id="${place.id}">
@@ -31,16 +30,13 @@ function getWisata() {
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="${place.gambar_url}" class="img-fluid rounded-end h-100 object-fit-cover"
-                                        alt="${place.nama}">
+                                    <img src="${place.gambar_url}" class="img-fluid rounded-end h-100 object-fit-cover" alt="${place.nama}">
                                 </div>
                             </div>
                         </div>
                     </div>
                 `;
             });
-
-
             LIST_WISATA.innerHTML = content
             COUNT_DATA.html(places.length)
         }
